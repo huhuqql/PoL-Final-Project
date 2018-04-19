@@ -1,0 +1,123 @@
+<html>
+
+<head>
+	<script src="lib/codemirror.js"></script>
+	<link rel="stylesheet" href="lib/codemirror.css">
+	<link rel="stylesheet" href="theme/vibrant-ink.css">
+	<script src="mode/javascript/javascript.js"></script>
+	<style>
+		iframe {
+			border: 2px solid #400040;
+			height: 600px;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<table border="2" width="100%" height="100%">
+		<tr>
+			<th>
+				<table width="100%" height="100%" border="0" cellspacing="5" cellpadding="5">
+					<tr>
+						<td width="50%" scope="col"> </td>
+						<td width="50%" scope="col" align="left">
+							<center>
+								<input onclick="runCode();" type="button" value="Run Code!">
+							</center>
+						</td>
+					</tr>
+
+					<td>
+							<textarea name="sourceCode" id="sourceCode">
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+
+  <meta charset="utf-8" />
+								
+  </head>
+  <body>
+	<script>
+	var x = 100,
+	y = 100,
+	angle1 = 0.0,
+	segLength = 50;
+	
+	function setup() {
+	  createCanvas(710, 400);
+	  strokeWeight(20.0);
+	  stroke(255, 100);
+	}
+								  
+	function draw() {
+	  background(0);
+							  
+	  dx = mouseX - x;
+	  dy = mouseY - y;
+	  angle1 = atan2(dy, dx);
+	  x = mouseX - (cos(angle1) * segLength);
+	  y = mouseY - (sin(angle1) * segLength);
+		
+	  segment(x, y, angle1);
+	  ellipse(x, y, 20, 20);
+	}
+								  
+	function segment(x, y, a) {
+	  push();
+	  translate(x, y);
+	  rotate(a);
+	  line(0, 0, segLength, 0);
+	  pop();
+	}
+	</script>
+  </body>
+</html>
+								
+								
+								
+</textarea>
+
+					</td>
+					<td>
+						<b>
+							<center>Output</b>
+						</center>
+						<iframe name="targetCode" id="targetCode"> </iframe>
+					</td>
+				</table>
+				<script>
+					var myTextarea = document.getElementById('sourceCode');
+					var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, {
+						mode: "text/javascript",
+						theme: "vibrant-ink",
+						lineNumbers: true,
+						styleActiveLine: true,
+   		 				matchBrackets: true
+					});
+					function runCode() {
+						var content = CodeMirrorEditor.getValue();
+						// console.log(CodeMirrorEditor.getValue());
+
+						var iframe = document.getElementById('targetCode');
+						iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument) ? iframe.contentDocument.document :
+							iframe.contentDocument;
+						iframe.document.open();
+						iframe.document.write(content);
+						iframe.document.close();
+
+						return false;
+					}
+					runCode();
+				</script>
+				<script>
+				</script>
+		</tr>
+		</th>
+	</table>
+
+</body>
+
+</html>
