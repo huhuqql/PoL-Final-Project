@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <link rel="stylesheet" href="theme/tomorrow-night-bright.css">
+    <script src="mode/javascript/javascript.js"></script>
+    <style>
+
+    </style>
+
+
+    <title>Shape</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.knob.js"></script>
+    <script src="js/jquery.throttle.js"></script>
+
+    <script src="js/popper.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</head>
+
+<body class="bg-dark">
+
+    <div>
+        <nav class="navbar navbar-dark bg-black">
+            <!-- Navbar content -->
+            <a class="navbar-brand" href="#">Practices</a>
+        </nav>
+
+        <div class="container-fluid">
+            <div style="margin-top:15px;" class="row">
+
+
+                <div id="text" class="col-sm">
+                    <textarea id="textbox" readonly="readonly" style="border-style:none;height:65%;width:100%;resize:none;">
+Draws an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken. The origin may be changed with the ellipseMode() function.     
+                    </textarea>
+                    <textarea id="hintbox" readonly="readonly" style="border-style:none;height:35%;width:100%;resize:none;">
+                            
+                    </textarea>
+                </div>
+
+                
+
+                <div class="col-sm">
+                    <textarea name="sourceCode" id="sourceCode">
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+
+  <meta charset="utf-8" />
+								
+  </head>
+  <body>
+	<script>
+var x, y;
+
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+  // Starts in the middle
+  x = width / 2;
+  y = height;
+}
+
+function draw() {
+  background(200);
+  
+  // Draw a circle
+  stroke(50);
+  fill(100);
+  ellipse(x, y, 24, 24);
+  x = x + random(-1, 1);
+  y = y - 1;
+  if (y < 0) {
+    y = height;
+  }
+}
+    </script>
+  </body>
+</html>
+						
+</textarea>
+<!-- <div class="container-fluid">
+        <row>
+                <div class="col-sm">
+                    <button  type="button" class="btn btn-dark">Back</button>
+                </div>>
+                <div class="col-sm">
+                        <button  type="button" class="btn btn-secondary" onclick="runCode();">Run</button>
+                        <button type="button" class="btn btn-secondary">Hint</button>        
+                </div>>
+            
+                <div class="col-sm">
+                    <button  type="button" class="btn btn-dark">Next</button>    
+                </div>
+            
+            </row>
+
+</div> -->
+<div class="container-fluid">
+        <div style="margin-top:10px;" class="row">
+          <div style="padding-left:0" class="col">
+                <button style="float:left" type="button" class="btn btn-dark">Back</button>       
+          </div>
+          <div style="text-align:center" class="col">
+                <button type="button" class="btn btn-secondary" onclick="runCode();">Run</button>
+                <button type="button" class="btn btn-secondary">Hint</button>  
+          </div>
+          <div style="padding-right:0" class="col">
+                <button style="float:right" type="button" class="btn btn-dark">Next</button>       
+          </div>
+        </div>
+      </div>
+
+                </div>
+
+                <div id="canvas" class="col-sm">
+                    <iframe style="height:100%;width:100%;padding:0;margin:0;" name="targetCode" id="targetCode"> </iframe>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+
+
+
+<script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.style.height = window.screen.height;
+
+            // var text = document.getElementById("text");
+            // text.style.height = window.screen.height/2;
+
+            var textbox = document.getElementById("textbox");
+            textbox.style.background= "#FFE5AA";
+
+            var hintbox = document.getElementById("hintbox");
+            hintbox.style.background= "#BAE2FF";
+        }
+
+</script>
+
+
+
+
+<script>
+    var iframeHeight = window.screen.height;
+    var windowHeight = document.body.clientHeight;
+    var myTextarea = document.getElementById('sourceCode');
+    var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, {
+        mode: "text/javascript",
+        theme: "tomorrow-night-bright",
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true
+    });
+    CodeMirrorEditor.setSize("auto", document.documentElement.clientHeight - 150);
+    function runCode() {
+        var content = CodeMirrorEditor.getValue();
+        // console.log(CodeMirrorEditor.getValue());
+
+        var iframe = document.getElementById('targetCode');
+        iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument) ? iframe.contentDocument.document :
+            iframe.contentDocument;
+        iframe.height = window.screen.height;
+        iframe.document.open();
+        iframe.document.write(content);
+        iframe.document.close();
+
+        return false;
+    }
+    runCode();
+
+</script>
+
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+
+</script>
+
+</body>
+
+</html>
