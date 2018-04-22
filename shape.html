@@ -58,7 +58,7 @@
                                 <div style="padding:10px;">
                                     <p style="font-size:20;" id="instruction"></p>
                                 </div>
-                                <div id="codebox" style="padding:10px">
+                                <div id="codebox" style="padding:10px;margin:10px;">
                                     <p id="code_segment"></p>
                                 </div>
                                 <div style="padding:10px;">
@@ -84,7 +84,7 @@
                                     <button id="backButton" style="float:left" type="button" class="btn btn-dark" onclick="back()">Back</button>       
                               </div>
                               <div style="text-align:center" class="col">
-                                    <button type="button" class="btn btn-dark" onclick="showHint()">Hint</button>  
+                                    <button id="hintButton" type="button" class="btn btn-dark" onclick="showHint()">Hint</button>  
                               </div>
                               <div style="padding-right:0" class="col">
                                     <button id="nextButton" style="float:right" type="button" class="btn btn-dark" onclick="next()">Next</button>       
@@ -126,23 +126,7 @@ function draw() {
 </html>
 						
 </textarea>
-<!-- <div class="container-fluid">
-        <row>
-                <div class="col-sm">
-                    <button  type="button" class="btn btn-dark">Back</button>
-                </div>>
-                <div class="col-sm">
-                        <button  type="button" class="btn btn-secondary" onclick="runCode();">Run</button>
-                        <button type="button" class="btn btn-secondary">Hint</button>        
-                </div>>
-            
-                <div class="col-sm">
-                    <button  type="button" class="btn btn-dark">Next</button>    
-                </div>
-            
-            </row>
 
-</div> -->
 <div class="container-fluid">
         <div style="margin-top:12px;" class="row">
           <div style="text-align:center" class="col">
@@ -205,7 +189,7 @@ function draw() {
         question++;
         instruction.innerHTML = csvfile[question][2];
         if(csvfile[question][4] != ""){
-            codebox.style.backgroundColor = "#D7EEFD";
+            codebox.style.backgroundColor = "#cccccc";
             code_segment.innerHTML = csvfile[question][4];
         }
         else{
@@ -219,7 +203,10 @@ function draw() {
             task.innerHTML = "";
         }
         hint.innerHTML = "";
-        document.getElementById("nextButton").disabled=true;
+        if(checkComplete == false){
+            document.getElementById("nextButton").disabled=true;
+        }
+
     }
 
     function back(){
@@ -227,7 +214,7 @@ function draw() {
         question--;
         instruction.innerHTML = csvfile[question][2];
         if(csvfile[question][4] != ""){
-            codebox.style.backgroundColor = "#D7EEFD";
+            codebox.style.backgroundColor = "#cccccc";
             code_segment.innerHTML = csvfile[question][4];
         }
         else{
@@ -256,7 +243,10 @@ function draw() {
 
     function checkComplete(){
         if(csvfile[question][3] == ""){
-            
+            return true;   
+        }
+        else{
+            return false;
         }
     }
 
