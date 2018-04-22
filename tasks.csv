@@ -1,0 +1,7 @@
+page,number,description,task,code,hint_1,hint_2
+shape,1,Welcome to the P5.js tutorial. Today you will be learning the three main functions provided by this powerful library. <br>Your first task will be creating different shapes on the graph.,,,,
+shape,2,"Draws a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. <br>By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height.","Please draw a rectangle with height 40 and width 30 at location (100,100).","rect(x, y, w, h);",Use the formlua provided and fill in the four parameters as described by the task.,"rect(100, 100, 30, 40);"
+shape,3,"Draws an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. <br>By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.","Please draw a circle with radius 40 at location (50,50).","ellipse(x, y, w, h);",Use the formlua provided and fill in the four parameters as described by the task.,"ellipse(50, 50, 40, 40);<br>or<br>ellipse(50, 50, 40);"
+shape,4,,,,,
+shape,5,,,,,
+shape,6,,,,,
