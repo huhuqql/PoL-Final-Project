@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="theme/night.css">
     <link rel="stylesheet" href="addon/scroll/simplescrollbars.css">
     <script src="addon/scroll/simplescrollbars.js"></script>
-    <script src="js/csvToArray.v2.1.min.js"></script>
+    <script src="js/csvToArray.v2.1.js"></script>
     <script src="mode/javascript/javascript.js"></script>
+    <script src="data.js"></script>
     <style>
-
     </style>
 
 
@@ -51,50 +51,53 @@
 
                 <div class="col-sm">
                     <div style="height:62%">
-                            <div style="background-color:#FFFEF6;height:100%;padding:0px;" class="container-fluid">
-                                <div style="text-align:center;padding:10px;background-color:#FFF6D3">
-                                    <h5 style="font-family: Oxygen">Instruction</h5>
-                                </div>
-                                <div style="padding:10px;">
-                                    <p style="font-size:20;" id="instruction"></p>
-                                </div>
-                                <div id="codebox" style="padding:10px;margin:10px;">
-                                    <p id="code_segment"></p>
-                                </div>
-                                <div style="padding:10px;">
-                                    <p id="task"></p>
-                                </div>
-
-                                    
+                        <div style="background-color:#FFFEF6;height:100%;padding:0px;" class="container-fluid">
+                            <div style="text-align:center;padding:10px;background-color:#FFF6D3">
+                                <h5 style="font-family: Oxygen">Instruction</h5>
                             </div>
+                            <div style="padding-left:10px;padding-right:10px;padding-top:10px;">
+                                <p style="font-size:25px;font-weight:500;" id="section"></p>
+                            </div>
+                            <div style="padding-left:10px;padding-right:10px;">
+                                <p style="font-size:17px;" id="instruction"></p>
+                            </div>
+                            <div id="codebox" style="padding:10px;margin-top:10px;margin-bottom:10px;margin-left:20px;margin-right:20px;">
+                                <p id="code_segment"></p>
+                            </div>
+                            <div id="taskbox" style="padding:10px;padding-left:20px;margin-top:20px;">
+                                <p id="task"></p>
+                            </div>
+
+
+                        </div>
                     </div>
                     <div style="margin-top:10px;height:31%">
-                            <div style="background-color:#F1F8FF;height:100%;padding:0px;" class="container-fluid">
-                                    <div style="text-align:center;padding:10px;background-color:#D7EEFD">
-                                            <h5 style="font-family: Oxygen">Hint</h5>
-                                    </div>
-                                    <div style="padding:10px;">
-                                        <p id="hint"> </p>
-                                    </div>
+                        <div style="background-color:#F1F8FF;height:100%;padding:0px;" class="container-fluid">
+                            <div style="text-align:center;padding:10px;background-color:#D7EEFD">
+                                <h5 style="font-family: Oxygen">Hint</h5>
                             </div>
+                            <div style="padding:10px;">
+                                <p style="font-size:17px;" id="hint"> </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="container-fluid">
-                            <div style="margin-top:10px;" class="row">
-                              <div style="padding-left:0" class="col">
-                                    <button id="backButton" style="float:left" type="button" class="btn btn-dark" onclick="back()">Back</button>       
-                              </div>
-                              <div style="text-align:center" class="col">
-                                    <button id="hintButton" type="button" class="btn btn-dark" onclick="showHint()">Hint</button>  
-                              </div>
-                              <div style="padding-right:0" class="col">
-                                    <button id="nextButton" style="float:right" type="button" class="btn btn-dark" onclick="next()">Next</button>       
-                              </div>
+                        <div style="margin-top:10px;" class="row">
+                            <div style="padding-left:0" class="col">
+                                <button id="backButton" style="float:left" type="button" class="btn btn-dark" onclick="back()">Back</button>
                             </div>
+                            <div style="text-align:center" class="col">
+                                <button id="hintButton" type="button" class="btn btn-dark" onclick="showHint()">Hint</button>
+                            </div>
+                            <div style="padding-right:0" class="col">
+                                <button id="nextButton" style="float:right" type="button" class="btn btn-dark" onclick="next()">Next</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
 
-                
+
 
                 <div class="col-sm">
                     <textarea name="sourceCode" id="sourceCode">
@@ -108,32 +111,31 @@
 								
   </head>
   <body>
-	<script>
-
-function setup() {
+  <script>
+        
+  function setup() {
     createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
 
-}
+  }
 
-function draw() {
+  function draw() {
     background(0);
 
-}
+  }
 
-
-    </script>
+  </script>
   </body>
 </html>
 						
 </textarea>
 
-<div class="container-fluid">
-        <div style="margin-top:12px;" class="row">
-          <div style="text-align:center" class="col">
-                <button style="width:100px;" type="button" class="btn btn-secondary" onclick="runCode();">Run</button>
-          </div>
-        </div>
-      </div>
+                    <div class="container-fluid">
+                        <div style="margin-top:12px;" class="row">
+                            <div style="text-align:center" class="col">
+                                <button style="width:100px;" type="button" class="btn btn-secondary" onclick="runCode();">Run</button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -146,26 +148,17 @@ function draw() {
 
     </div>
 
+
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var csvfile;
-    function readCsvFile() {
-        $.ajax({
-            url: "tasks.csv",
-            dataType: 'text',
-            cache: false
-        }).done(function (csvAsString) {
-            csvfile = csvAsString.csvToArray();
-            console.log(csvfile);
-        });
-    }
-</script>
+</script> -->
 
 
 
 <script>
-    readCsvFile();
+
     var question = 0;
     var hint_time = 0;
 
@@ -177,6 +170,7 @@ function draw() {
     var hint;
 
     window.onload = function () {
+        section = document.getElementById("section");
         instruction = document.getElementById("instruction");
         hint = document.getElementById("hint");
         codebox = document.getElementById("codebox");
@@ -184,68 +178,87 @@ function draw() {
         task = document.getElementById("task");
     }
 
-    function next(){
+    function next() {
         hint_time = 0;
         question++;
-        instruction.innerHTML = csvfile[question][2];
-        if(csvfile[question][4] != ""){
+        section.innerHTML = csvfile[question].page;
+        instruction.innerHTML = csvfile[question].description;
+        if (csvfile[question].code != "") {
             codebox.style.backgroundColor = "#cccccc";
-            code_segment.innerHTML = csvfile[question][4];
+            code_segment.innerHTML = csvfile[question].code;
         }
-        else{
+        else {
             codebox.style.backgroundColor = "#FFFEF6";
             code_segment.innerHTML = "";
         }
-        if(csvfile[question][3] != ""){
-            task.innerHTML = csvfile[question][3];
+        if (csvfile[question].task != "") {
+            taskbox.style.backgroundColor = "#f9df89";
+            task.innerHTML = csvfile[question].task;
         }
-        else{
+        else {
+            taskbox.style.backgroundColor = "#FFFEF6";
             task.innerHTML = "";
         }
         hint.innerHTML = "";
-        if(checkComplete == false){
-            document.getElementById("nextButton").disabled=true;
+        if (checkComplete() == false) {
+            document.getElementById("nextButton").disabled = true;
         }
-
     }
 
-    function back(){
+    function back() {
+        document.getElementById("nextButton").disabled = false;
         hint_time = 0;
         question--;
-        instruction.innerHTML = csvfile[question][2];
-        if(csvfile[question][4] != ""){
+        section.innerHTML = csvfile[question].page;
+        instruction.innerHTML = csvfile[question].description;
+        if (csvfile[question].code != "") {
             codebox.style.backgroundColor = "#cccccc";
-            code_segment.innerHTML = csvfile[question][4];
+            code_segment.innerHTML = csvfile[question].code;
         }
-        else{
+        else {
             codebox.style.backgroundColor = "#FFFEF6";
             code_segment.innerHTML = "";
         }
-        if(csvfile[question][3] != ""){
-            task.innerHTML = csvfile[question][3];
+        if (csvfile[question].task != "") {
+            taskbox.style.backgroundColor = "#f9df89";
+            task.innerHTML = csvfile[question].task;
         }
-        else{
+        else {
+            taskbox.style.backgroundColor = "#FFFEF6"
             task.innerHTML = "";
         }
         hint.innerHTML = "";
     }
 
-    function showHint(){
-        console.log(hint.innerHTML = csvfile[question][5]);
-        if(hint_time == 0){
-            hint.innerHTML = csvfile[question][5];
+    function showHint() {
+        console.log(hint.innerHTML = csvfile[question].hint_1);
+        if (hint_time == 0) {
+            hint.innerHTML = csvfile[question].hint_1;
             hint_time++;
         }
-        else{
-            hint.innerHTML = csvfile[question][6];         
+        else {
+            hint.innerHTML = csvfile[question].hint_2;
         }
     }
 
-    function checkComplete(){
-        if(csvfile[question][3] == ""){
-            return true;   
+    function checkComplete() {
+        if (csvfile[question].hint_2 == "") {
+            return true;
         }
-        else{
+        else {
+            var intendedFunction = csvfile[question].hint_2.substring(0, csvfile[question].hint_2.indexOf("("));
+            console.log(intendedFunction);
+            var tempcontent = CodeMirrorEditor.getValue();
+            var start = tempcontent.indexOf(intendedFunction);
+            var end;
+            if (start > 0) {
+                end = start + tempcontent.substring(start, tempcontent.length - 1).indexOf(";");
+                var result = tempcontent.substring(start, end).replace(/[ ]/g, "");
+                if (result == csvfile[question].hint_2) {
+                    return true;
+                }
+            }
+            
             return false;
         }
     }
@@ -280,7 +293,9 @@ function draw() {
         iframe.document.open();
         iframe.document.write(content);
         iframe.document.close();
-
+        if (checkComplete() == true) {
+            document.getElementById("nextButton").disabled = false;
+        }
         return false;
     }
     runCode();
@@ -300,6 +315,8 @@ function draw() {
     feather.replace()
 
 </script>
+
+
 
 </body>
 
