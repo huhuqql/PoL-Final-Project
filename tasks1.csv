@@ -1,0 +1,42 @@
+page,number,description,task,code,feedback,hint_1,hint_2,answer_1,answer_2
+Introduction,1,Welcome to the P5.js tutorial. Today you will be learning the three main functions provided by this powerful library. <br>,,,,,,,
+Introduction,2,"First, let's learn the basic structure of P5.js.<br>
+As you can see from the code area. All the codes in this function will only be executed once when the code is loaded. ",,"<b style=""color:#265eb7"">function</b> setup() {<br>
+<br>
+}
+",,,,,
+Introduction,3,"""createCanvas"" is a function from the P5.js library, which allows you to define a canvas with a specific width and height over the screen.<br>
+However, we defined the width and height here for you to fit the canvas window. Please do not modify these parameters.",,"<b style=""color:#265eb7"">function</b> setup() {<br>
+&nbsp;&nbsp;createCanvas(width, height);<br>
+}
+",,,,,
+Introduction,4,All the codes in this function will be executed repeatedly. ,,"<b style=""color:#265eb7"">function</b> draw() {<br>
+  <br>
+
+}",,,,,
+Introduction,5,"""background"" defines the color of the current Canvas you created. <br>
+","Now, please try to change 0 to another different value between 0 to 255. And then click ""Run"".","<b style=""color:#265eb7"">function</b> draw() {<br>
+    &nbsp;&nbsp;background(0);<br>
+
+}",,,,,
+Shape and Color,1,"Your first task will be creating different shapes on the graph.<br>
+To create a shape, you should first specify the color of the shape. The default mode is RGB values from 0 to 255. Use this function to set the color used to fill shapes. For example, if you run fill(204, 102, 0), all subsequent shapes will be filled with orange.","Please set the color to:<br>
+red = 250 <br>
+green = 60 <br>
+blue = 60 <br>","fill(r, g, b);","Did you write the code in the ""draw"" function?","red corresponds to the first parameter.<br>
+green corresponds to the second parameter.<br>
+blue corresponds to the thrid parameter.","fill(250,60,60);","fill(250,60,60)",
+Shape and Color,2,"Now you have successfully set the color, you can now draw the shapes on canvas.<br>
+Use the following function to draw a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. <br>By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height.","Please draw a rectangle with height 40 and width 30 at location (100,100).","rect(x, y, w, h);",Make sure you understand the meaning of each parameter in this function.,Use the formlua provided and fill in the four parameters as described by the task.,"rect(100,100,30,40);","rect(100,100,30,40)",
+Shape and Color,,"Now Let's try a different color!<br>
+Use the function below again.","Please set the color to:<br>
+red = 60 <br>
+green = 90 <br>
+blue = 200 <br>","fill(r, g, b);",Did you overwrite the previous code?,"red corresponds to the first parameter.<br>
+green corresponds to the second parameter.<br>
+blue corresponds to the thrid parameter.","fill(60, 90, 200);","fill(60, 90, 200)",
+Shape and Color,3,"This function will draw an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. <br>By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.","Please draw a circle with radius 40 at location (50,50).","ellipse(x, y, w, h);",Make sure you understand the meaning of each parameter in this function.,Use the formlua provided and fill in the four parameters as described by the task.,"ellipse(50,50,40,40);","ellipse(50,50,40,40)","ellipse(50,50,40)"
+Motion,4,"Now Let's learn a new effect that P5.js provides.<br>
+We can not only draw still images over a screen. We can also make it move.",,,,,,,
+Motion,,,,,,,,,
+Motion,,,,,,,,,
