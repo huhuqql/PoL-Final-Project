@@ -257,6 +257,100 @@
     
 </textarea>
 
+
+    <textarea style="display:none" name="interaction1" id="interaction1">
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+
+<meta charset="utf-8" />
+								
+</head>
+<body>
+<script>   
+
+    var x;
+    var y;
+    var r;
+  
+    function setup() {
+        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+	    x = width/2;
+	    y = height/2;
+	    r = 50;
+    }
+
+    function draw() {
+        background(0);
+		fill(200,0,0);
+          ellipse(x,y,r,r);
+          
+      if(false){
+      	x += random(-1, 1);
+    	y += random(-1, 1);
+      }
+    }
+
+</script>
+</body>
+</html>
+
+    
+</textarea>
+
+
+    <textarea style="display:none" name="follow1" id="follow1">
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+
+<meta charset="utf-8" />
+								
+</head>
+<body>
+<script>   
+
+var x = 100;
+var y = 100;
+var angle1 = 0.0;
+var segLength = 50;
+
+
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+  strokeWeight(20);
+  stroke(color(250,60,60));
+}
+
+function draw() {
+  background(0);
+  dx = mouseX - x;
+  dy = mouseY - y;
+  angle1 = atan2(dy, dx);
+  x = mouseX - (cos(angle1) * segLength);
+  y = mouseY - (sin(angle1) * segLength);
+  segment(x, y, angle1);
+}
+
+function segment(x, y, a) {
+  push();
+  line(0, 0, segLength, 0);
+  pop();
+}
+
+</script>
+</body>
+</html>
+
+    
+</textarea>
+
 </body>
 
 <!-- <script type="text/javascript">
@@ -438,15 +532,14 @@
         iframe.document.write("");
         iframe.document.write(content);
         iframe.document.close();
-        console.log(iframe);
         if (checkComplete() == true) {
             document.getElementById("nextButton").disabled = false;
             document.getElementById("nextButton").className = "btn btn-success";
         }
         else {
-            if (csvfile[question].feedback != "") {
-                hint.innerHTML = csvfile[question].feedback;
-            }
+            // if (csvfile[question].feedback != "") {
+            //     hint.innerHTML = csvfile[question].feedback;
+            // }
         }
         return false;
     }
