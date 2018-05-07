@@ -60,7 +60,7 @@ First, we pre-defined a circle in the middle of the screen with a diameter of 50
 x = width/2; <br>
 y = height/2; <br>
 r = 50; <br>",,,,,,interaction1
-Interaction,2,"This <b>if-statement</b> needs to be modified to achieve interaction - so when we hover the index over the circle, the circle will tickle (moving randomly)",,"if(<b style=""color:#36047c"">false,</b>){ <br>
+Interaction,2,"This <b>if-statement</b> needs to be modified to achieve interaction - so when we hover the index over the circle, the circle will tickle (moving randomly)",,"if(<b style=""color:#36047c"">false</b>){ <br>
 &nbsp;&nbsp;x += random(-1, 1);<br>
 &nbsp;&nbsp;y += random(-1, 1);<br>
 }",,,,,,
@@ -72,7 +72,7 @@ mouseX >= x - r/2 && mouseX <= x + r/2",mouseX <br>,,Just copy and paste the cod
 Interaction,4,"Now, hover your mouse over the circle.<br>
 The circle is tickling! However, since we haven't detect the y position, the circle will still tickle even we hover the mouse above or below it. ",Please refine mouseY (the y position of your index) like what we just did for mouseX in the if-statement.,mouseY <br>,,"Since the object is a circle, the detection for mouseY should be exactly the same as for mouseX",mouseY >= y - r/2 && mouseY <= y + r/2,mouseX>=x-r/2&&mouseX<=x+r/2&&mouseY>=y-r/2&&mouseY<=y+r/2,,
 Follow,1,"Here's the final toturial. And it is also the most complext part.<br>
-For this section, you don't need to fully undersand how each line of code works. However, you need to understand the meaning of each function.",Try to move around your mouse on the canvas.,,,,,,,follow1
+For this section, you don't need to fully undersand how each line of code works. However, you need to understand the meaning of each function.",,,,,,,,follow1
 Follow,2,"The code in function ""draw()"" calculate the position of the line and the angle that the line should incline.",,"<b style=""color:#265eb7"">function</b>  draw() {<br>
  &nbsp;&nbsp;background(0);<br>
  &nbsp;&nbsp; dx = mouseX - x;<br>
@@ -84,10 +84,10 @@ Follow,2,"The code in function ""draw()"" calculate the position of the line and
 }",,,,,,
 Follow,3,"The code in function ""segment()"" draws the line. <br>
 However, currently, we just keep drawing the line at position (0,0) which doesn't make sense.",,"<b style=""color:#265eb7"">function</b> segment() {<br>
-  &nbsp;&nbsp; push();
-  &nbsp;&nbsp; line(0, 0, segLength, 0);
-  &nbsp;&nbsp; pop();
-}",,,,,,
+  &nbsp;&nbsp; push();<br>
+  &nbsp;&nbsp; line(0, 0, segLength, 0);<br>
+  &nbsp;&nbsp; pop();<br>
+}<br>",,,,,,
 Follow,4,"To move an object, we have two ways to achieve it:<br>
 &nbsp;&nbsp; - change the x and y position of the object<br>
 &nbsp;&nbsp; - use the ""translate()"" function:
@@ -96,3 +96,8 @@ Transformations are cumulative and apply to everything that happens after and su
 Follow,5,"Now, the objects can follow our index!<br>
 However, we need to utilize the rotation, otherwise the line will only be horizontal!<br>
 The function below rotates a shape the amount specified by the angle parameter.","Please add  rotation to function ""segment()"" using the parameters provided.",rotate(angle);,,rotate(a);,rotate(a);,rotate(a),,
+Final Test,1,"Congratulations on your completion on all the tutorials!<br>
+Now Let's use all we've learned to create a interesting interaction effect!<br>
+<a href=""test.html"" target=""_blank"">Click herel</a> to preview the final effects!
+","Please use the frame we provided to complete the rest part. <br>
+The comments with ""to do"" is the part that you will need to fill in. Make sure you understand the code first before trying to fill in your part.",,,,,,,test

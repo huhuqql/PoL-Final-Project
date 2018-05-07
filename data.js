@@ -2,7 +2,7 @@ var csvfile = [
   {
     "page": "Introduction",
     "number": 1,
-    "description": "Welcome to the P5.js tutorial. Today you will be learning the three main functions provided by this powerful library. <br>",
+    "description": "Welcome to the P5.js tutorial. Today you will be learning the four main functions provided by this powerful library. <br>",
     "task": "",
     "code": "",
     "feedback": "",
@@ -199,7 +199,7 @@ var csvfile = [
     "number": 2,
     "description": "This <b>if-statement</b> needs to be modified to achieve interaction - so when we hover the index over the circle, the circle will tickle (moving randomly)",
     "task": "",
-    "code": "if(<b style=\"color:#36047c\">false,</b>){ <br>\n&nbsp;&nbsp;x += random(-1, 1);<br>\n&nbsp;&nbsp;y += random(-1, 1);<br>\n}",
+    "code": "if(<b style=\"color:#36047c\">false</b>){ <br>\n&nbsp;&nbsp;x += random(-1, 1);<br>\n&nbsp;&nbsp;y += random(-1, 1);<br>\n}",
     "feedback": "",
     "hint_1": "",
     "hint_2": "",
@@ -237,7 +237,7 @@ var csvfile = [
     "page": "Follow",
     "number": 1,
     "description": "Here's the final toturial. And it is also the most complext part.<br>\nFor this section, you don't need to fully undersand how each line of code works. However, you need to understand the meaning of each function.",
-    "task": "Try to move around your mouse on the canvas.",
+    "task": "",
     "code": "",
     "feedback": "",
     "hint_1": "",
@@ -264,7 +264,7 @@ var csvfile = [
     "number": 3,
     "description": "The code in function \"segment()\" draws the line. <br>\nHowever, currently, we just keep drawing the line at position (0,0) which doesn't make sense.",
     "task": "",
-    "code": "<b style=\"color:#265eb7\">function</b> segment() {<br>\n  &nbsp;&nbsp; push();\n  &nbsp;&nbsp; line(0, 0, segLength, 0);\n  &nbsp;&nbsp; pop();\n}",
+    "code": "<b style=\"color:#265eb7\">function</b> segment() {<br>\n  &nbsp;&nbsp; push();<br>\n  &nbsp;&nbsp; line(0, 0, segLength, 0);<br>\n  &nbsp;&nbsp; pop();<br>\n}<br>",
     "feedback": "",
     "hint_1": "",
     "hint_2": "",
@@ -297,5 +297,18 @@ var csvfile = [
     "answer_1": "rotate(a)",
     "answer_2": "",
     "reset": ""
+  },
+  {
+    "page": "Final Test",
+    "number": 1,
+    "description": "Congratulations on your completion on all the tutorials!<br>\nNow Let's use all we've learned to create a interesting interaction effect!<br>\n<a href=\"test.html\" target=\"_blank\">Click herel</a> to preview the final effects!\n",
+    "task": "Please use the frame we provided to complete the rest part. <br>\nThe comments with \"to do\" is the part that you will need to fill in. Make sure you understand the code first before trying to fill in your part.",
+    "code": "",
+    "feedback": "",
+    "hint_1": "",
+    "hint_2": "",
+    "answer_1": "",
+    "answer_2": "",
+    "reset": "test"
   }
-];
+ ];

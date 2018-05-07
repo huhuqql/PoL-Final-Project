@@ -35,6 +35,10 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
 
+        $(function () {
+            $('#startModal').modal('toggle')
+        })
+
     </script>
 </head>
 
@@ -114,15 +118,15 @@
 <body>
 <script>
 
-    function setup() {
-        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
 
-    }
+}
 
-    function draw() {
-        background(0);
+function draw() {
+  background(0);
 
-    }
+}
 
 </script>
 </body>
@@ -138,17 +142,42 @@
                         </div>
                     </div>
 
-                </div>
+                    </div>
 
-                <div id="canvas" class="col-sm">
-                    <iframe style="height:100%;width:100%;padding:0;margin:0;" name="targetCode" id="targetCode"> </iframe>
-                </div>
+                    <div id="canvas" class="col-sm">
+                        <iframe style="height:100%;width:100%;padding:0;margin:0;" name="targetCode" id="targetCode"> </iframe>
+                    </div>
+                    </div>
+
+                    </div>
+
+</div>
+
+    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Welcome to our coding classroom</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-
+            <div class="modal-body">
+                <p>
+                    In this tutorial, you will experience 4 important modules that builds up the basic interaction over the "canvas". In each
+                    step, make sure you read the instruction before moving on to the task. Your answer will be automatically
+                    checked, and only upon correct will the "next button" be activated.
+                </p>
+                <p>
+                    *Note: you can utilize both the "hint button" for help or the "back button" to review what you just learned.
+                </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="next()">Get Start</button>
+            </div>
+          </div>
         </div>
-
-    </div>
-
+      </div>
 
     <textarea style="display:none" name="reset" id="reset">
 <!DOCTYPE html>
@@ -163,15 +192,15 @@
 <body>
 <script>
 
-    function setup() {
-        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
 
-    }
+}
 
-    function draw() {
-        background(0);
+function draw() {
+  background(0);
 
-    }
+}
 
 </script>
 </body>
@@ -193,30 +222,30 @@
 <body>
 <script>
 
-    // define the position of the circle
-    var x;
-    var y;
+// define the position of the circle
+var x;
+var y;
 
-    function setup() {
-        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
-        x = width / 2;
-        y = height - 10;
-    }
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+  x = width / 2;
+  y = height - 10;
+}
 
-    function draw() {
-        background(200);
+function draw() {
+  background(200);
 
-        // Draw a circle
-        fill(100);
-        ellipse(x, y, 50, 50);
-        x = x;
-        y = y;
+  // Draw a circle
+  fill(100);
+  ellipse(x, y, 50, 50);
+  x = x;
+  y = y;
 
-        // Reset to the bottom
-        if (y < 0) {
-            y = height;
-        }
-    }
+ // Reset to the bottom
+  if (y < 0) {
+    y = height;
+  }
+}
 
 </script>
 </body>
@@ -239,16 +268,16 @@
 <body>
 <script>
 
-    function setup() {
-        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
 
-    }
+}
 
-    function draw() {
-        background(0);
+function draw() {
+  background(0);
 
-        rect(100,100,100,100);
-    }
+  rect(100,100,100,100);
+}
 
 </script>
 </body>
@@ -272,27 +301,27 @@
 <body>
 <script>   
 
-    var x;
-    var y;
-    var r;
+var x;
+var y;
+var r;
   
-    function setup() {
-        createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
-	    x = width/2;
-	    y = height/2;
-	    r = 50;
-    }
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+  x = width/2;
+  y = height/2;
+  r = 50;
+}
 
-    function draw() {
-        background(0);
-		fill(200,0,0);
-          ellipse(x,y,r,r);
+function draw() {
+  background(0);
+  fill(200,0,0);
+  ellipse(x,y,r,r);
           
-      if(false){
-      	x += random(-1, 1);
-    	y += random(-1, 1);
-      }
-    }
+  if(false){
+    x += random(-1, 1);
+    y += random(-1, 1);
+  }
+}
 
 </script>
 </body>
@@ -351,6 +380,92 @@ function segment(x, y, a) {
     
 </textarea>
 
+
+    <textarea style="display:none" name="test" id="test">
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+
+<meta charset="utf-8" />
+								
+</head>
+<body>
+<script>   
+
+var x = 100;
+var y = 100;
+var angle1 = 0.0;
+var segLength = 50;
+
+var ex, ey, d;
+var r,g,b;
+var ball_color;
+
+function setup() {
+  createCanvas(document.body.clientWidth, document.documentElement.clientHeight - 20);
+  linec = color(255,255,255);
+  strokeWeight(20.0);
+  stroke(255, 100);
+  ex = width/2;
+  ey = height/2;
+  d = 60;
+  generateColor();
+}
+
+function draw() {
+
+  background(0);
+  ball(ex, ey, d, d);
+  //to do: move the ball so when it hits the wall, it should bounce back and at the same time change the color
+
+  dx = mouseX - x;
+  dy = mouseY - y;
+  angle1 = atan2(dy, dx);
+  x = mouseX - (cos(angle1) * segLength);
+  y = mouseY - (sin(angle1) * segLength);
+  segment(x, y, angle1);
+}
+
+//randomly generate a color
+function generateColor(){
+  //to do: generate new r, g, b randomly
+  ball_color = color(r,g,b);
+}
+
+//draw the line
+function segment(x, y, a) {
+  push();
+  translate(x, y);
+  rotate(a);
+  //to do: detect if we have moved the line over the ball
+
+  stroke(linec);
+  line(0, 0, segLength, 0);
+  pop();
+}
+
+//draw the ball
+function ball(x, y, d, d){
+  push();
+  fill(ball_color);
+  strokeWeight(0);
+  //to do: draw the circle
+
+  pop();
+}
+
+</script>
+</body>
+</html>
+
+    
+</textarea>
+
+
+
 </body>
 
 <!-- <script type="text/javascript">
@@ -370,6 +485,8 @@ function segment(x, y, a) {
     var instruction;
     var hint;
 
+    var question_done = 0;
+
     window.onload = function () {
         section = document.getElementById("section");
         instruction = document.getElementById("instruction");
@@ -382,6 +499,9 @@ function segment(x, y, a) {
     function next() {
         hint_time = 0;
         question++;
+        if(question_done < question){
+            question_done = question;
+        }
         section.innerHTML = csvfile[question].page;
         instruction.innerHTML = csvfile[question].description;
         if (csvfile[question].code != "") {
@@ -402,8 +522,14 @@ function segment(x, y, a) {
         }
         hint.innerHTML = "";
         if (checkComplete() == false) {
-            document.getElementById("nextButton").disabled = true;
-            document.getElementById("nextButton").className = "btn btn-dark";
+            if(question_done <= question){
+                document.getElementById("nextButton").disabled = true;
+                document.getElementById("nextButton").className = "btn btn-dark";
+            }
+            else{
+                document.getElementById("nextButton").disabled = false;
+                document.getElementById("nextButton").className = "btn btn-success";               
+            }
         }
         else{
             document.getElementById("nextButton").disabled = false;
