@@ -72,8 +72,6 @@
                             <div id="taskbox" style="padding:10px;padding-left:20px;margin-top:20px;">
                                 <p id="task"></p>
                             </div>
-
-
                         </div>
                     </div>
                     <div style="margin-top:10px;height:31%">
@@ -399,6 +397,8 @@ var x = 100;
 var y = 100;
 var angle1 = 0.0;
 var segLength = 50;
+var directiony = 2;
+var directionx = 2;
 
 var ex, ey, d;
 var r,g,b;
@@ -419,7 +419,17 @@ function draw() {
 
   background(0);
   ball(ex, ey, d, d);
-  //to do: move the ball so when it hits the wall, it should bounce back and at the same time change the color
+
+  ex = ex + directionx;
+  if(ex > width || ex < 0){
+    generateColor();
+    directionx = -directionx;
+  }
+  ey = ey + directiony;
+  if(ey > height || ey < 0){
+	generateColor();	
+	directiony = -directiony;
+  }
 
   dx = mouseX - x;
   dy = mouseY - y;
@@ -486,6 +496,7 @@ function ball(x, y, d, d){
     var hint;
 
     var question_done = 0;
+    var firstRun = 0;
 
     window.onload = function () {
         section = document.getElementById("section");
@@ -501,6 +512,7 @@ function ball(x, y, d, d){
         question++;
         if(question_done < question){
             question_done = question;
+            firstRun = 0;
         }
         section.innerHTML = csvfile[question].page;
         instruction.innerHTML = csvfile[question].description;
@@ -663,9 +675,12 @@ function ball(x, y, d, d){
             document.getElementById("nextButton").className = "btn btn-success";
         }
         else {
-            // if (csvfile[question].feedback != "") {
-            //     hint.innerHTML = csvfile[question].feedback;
-            // }
+            if (csvfile[question].feedback != "" && firstRun != 0) {
+                hint.innerHTML = csvfile[question].feedback;
+            }
+            else{
+                firstRun = 1;
+            }
         }
         return false;
     }

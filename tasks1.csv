@@ -1,5 +1,5 @@
 page,number,description,task,code,feedback,hint_1,hint_2,answer_1,answer_2,reset
-Introduction,1,Welcome to the P5.js tutorial. Today you will be learning the three main functions provided by this powerful library. <br>,,,,,,,,
+Introduction,1,Welcome to the P5.js tutorial. Today you will be learning the four main functions provided by this powerful library. <br>,,,,,,,,
 Introduction,2,"First, let's learn the basic structure of P5.js.<br>
 As you can see from the code area. All the codes in this function will only be executed once when the code is loaded. ",,"<b style=""color:#265eb7"">function</b> setup() {<br>
 <br>
@@ -28,7 +28,9 @@ blue = 60 <br>","fill(r, g, b);","Did you write the code in the ""draw"" functio
 green corresponds to the second parameter.<br>
 blue corresponds to the thrid parameter.","fill(250,60,60);","fill(250,60,60)",,shape1
 Shape and Color,2,"Now you have successfully set the color, you can now draw the shapes on canvas.<br>
-Use the following function to draw a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. <br>By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height.","Please add a rectangle with height 40 and width 30 at location (100,200).","rect(x, y, w, h);",Make sure you understand the meaning of each parameter in this function.,Use the formlua provided and fill in the four parameters as described by the task.,"rect(100,200,30,40);","rect(100,200,30,40)",,
+Use the following function to draw a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. <br>By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height.","Please add a rectangle with height 40 and width 30 at location (100,200).","rect(x, y, w, h);","Make sure you understand the meaning of each parameter in this function.<br>
+The first two parameters are the position.<br>
+While the later two parameters are the width and height.",Use the formlua provided and fill in the four parameters as described by the task.,"rect(100,200,30,40);","rect(100,200,30,40)",,
 Shape and Color,3,"Now Let's try a different color!<br>
 Let's set the color first. Use the function below again.","Please set the color to:<br>
 red = 60 <br>
@@ -36,7 +38,15 @@ green = 90 <br>
 blue = 200 <br>","fill(r, g, b);",Did you overwrite the previous code?,"red corresponds to the first parameter.<br>
 green corresponds to the second parameter.<br>
 blue corresponds to the thrid parameter.","fill(60, 90, 200);","fill(60,90,200)",,reset
-Shape and Color,4,"This function will draw an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. <br>By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.","Please draw a circle with width (diameter) 40 at location (50,50).","ellipse(x, y, w, h);",Make sure you understand the meaning of each parameter in this function.,Use the formlua provided and fill in the four parameters as described by the task.,"ellipse(50,50,40,40);","ellipse(50,50,40,40)","ellipse(50,50,40)",
+Shape and Color,4,"This function will draw an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. <br>By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.","Please draw a circle with width (diameter) 40 at location (50,50).","ellipse(x, y, w, h);","Make sure you understand the meaning of each parameter in this function.<br>
+The first two parameters are the position.<br>
+While the later two parameters are the width and height.",Use the formlua provided and fill in the four parameters as described by the task.,"ellipse(50,50,40,40);","ellipse(50,50,40,40)","ellipse(50,50,40)",
+Shape and Color,5,"Like the shape we created using software like photoshop, each shape has a stroke. We can also change the both stroke weight and color of the shape by using the following function.<br>
+Function ""strokeWeight()"" sets the width of the stroke used for lines, points, and the border around shapes. All widths are set in units of pixels.<br>
+Function ""stroke()"" sets the color used to draw lines and borders around shapes.","Please set the stroke weight to 10 and stroke color to white (255,255,255). ","strokeWeight(x);<br>
+stroke(r,g,b);",,Use the formlua provided and fill in the four parameters as described by the task.,"strokeWeight(10);<br>
+stroke(255,255,255);","strokeWeight(10);
+stroke(255,255,255)",,
 Motion,1,"Now Let's learn a new effect that P5.js provides.<br>
 We can not only draw still images over a screen. We can also make an object move.<br>
 Here we provide you a basic structure of an object and it's position prefined.<br>
@@ -50,9 +60,12 @@ Motion,3,"In function ""draw()"", we defined our object - a circle with position
 ellipse(x, y, 50, 50);",,,,,,
 Motion,4,"In our current code segment. We did not change the value of x and y everytime we execute ""draw()"".<br>
 However, we can change their value to make the object move!","Please try to modify the y position to make the circle moving up 1 pixel every time the function ""draw()"" is executed.","x = x; <br>
-y = y;",,"To move the circle up, you should decrease the value of y until it reaches 0.",y = y - 1;,y=y-1,,
+y = y;","Did you move the ball down out of the screen? <br>
+Remember: The y-position is 0 at the top of the screen.","To move the circle up, you should decrease the value of y until it reaches 0.",y = y - 1;,y=y-1,,
 Motion,5,"Now let's try something harder!<br>
-We would like to utilize the random function to change the x position of the circle.","Please modify the x position to make the ball moving left and right randomly within -1 and 1 each iteration the function ""draw()"" is executed.","random([min],[max]);",,The random function will generate a random floating-point number between the two parameters.,"x = x + random(-1,1);","x=x+random(-1,1)",,
+We would like to utilize the random function to change the x position of the circle.","Please modify the x position to make the ball moving left and right randomly within -1 and 1 each iteration the function ""draw()"" is executed.","random([min],[max]);","Did you delete the original x value?<br>
+Actually everytime the change on x is based on its last value, so the right function is like this:<br>
+x = x + ?",The random function will generate a random floating-point number between the two parameters.,"x = x + random(-1,1);","x=x+random(-1,1)",,
 Interaction,1,"Now, here's the final powerful module that P5.js provides. <br>
 First, we pre-defined a circle in the middle of the screen with a diameter of 50.",,"<b style=""color:#265eb7"">var</b> x; <br>
 <b style=""color:#265eb7"">var</b> y; <br>
@@ -70,7 +83,8 @@ So we can easily detect if we have hovered the mouse over an object as long as w
 &nbsp&nbsp- the x and y position of our index <br>","Please replace the false in the if-statement to <br>
 mouseX >= x - r/2 && mouseX <= x + r/2",mouseX <br>,,Just copy and paste the code!,mouseX >= x - r/2 && mouseX <= x + r/2,mouseX>=x-r/2&&mouseX<=x+r/2,,
 Interaction,4,"Now, hover your mouse over the circle.<br>
-The circle is tickling! However, since we haven't detect the y position, the circle will still tickle even we hover the mouse above or below it. ",Please refine mouseY (the y position of your index) like what we just did for mouseX in the if-statement.,mouseY <br>,,"Since the object is a circle, the detection for mouseY should be exactly the same as for mouseX",mouseY >= y - r/2 && mouseY <= y + r/2,mouseX>=x-r/2&&mouseX<=x+r/2&&mouseY>=y-r/2&&mouseY<=y+r/2,,
+The circle is tickling! However, since we haven't detect the y position, the circle will still tickle even we hover the mouse above or below it. ",Please refine mouseY (the y position of your index) like what we just did for mouseX in the if-statement.,mouseY <br>,"Did you delete the detection for mouseX? <br>
+We need both detections at the same time - by using && to connect them","Since the object is a circle, the detection for mouseY should be exactly the same as for mouseX",mouseY >= y - r/2 && mouseY <= y + r/2,mouseX>=x-r/2&&mouseX<=x+r/2&&mouseY>=y-r/2&&mouseY<=y+r/2,,
 Follow,1,"Here's the final toturial. And it is also the most complext part.<br>
 For this section, you don't need to fully undersand how each line of code works. However, you need to understand the meaning of each function.",,,,,,,,follow1
 Follow,2,"The code in function ""draw()"" calculate the position of the line and the angle that the line should incline.",,"<b style=""color:#265eb7"">function</b>  draw() {<br>

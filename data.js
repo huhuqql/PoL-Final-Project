@@ -83,7 +83,7 @@ var csvfile = [
     "description": "Now you have successfully set the color, you can now draw the shapes on canvas.<br>\nUse the following function to draw a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. <br>By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height.",
     "task": "Please add a rectangle with height 40 and width 30 at location (100,200).",
     "code": "rect(x, y, w, h);",
-    "feedback": "Make sure you understand the meaning of each parameter in this function.",
+    "feedback": "Make sure you understand the meaning of each parameter in this function.<br>\nThe first two parameters are the position.<br>\nWhile the later two parameters are the width and height.",
     "hint_1": "Use the formlua provided and fill in the four parameters as described by the task.",
     "hint_2": "rect(100,200,30,40);",
     "answer_1": "rect(100,200,30,40)",
@@ -109,11 +109,24 @@ var csvfile = [
     "description": "This function will draw an ellipse (oval) to the screen. An ellipse with equal width and height is a circle. <br>By default, the first two parameters set the location, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.",
     "task": "Please draw a circle with width (diameter) 40 at location (50,50).",
     "code": "ellipse(x, y, w, h);",
-    "feedback": "Make sure you understand the meaning of each parameter in this function.",
+    "feedback": "Make sure you understand the meaning of each parameter in this function.<br>\nThe first two parameters are the position.<br>\nWhile the later two parameters are the width and height.",
     "hint_1": "Use the formlua provided and fill in the four parameters as described by the task.",
     "hint_2": "ellipse(50,50,40,40);",
     "answer_1": "ellipse(50,50,40,40)",
     "answer_2": "ellipse(50,50,40)",
+    "reset": ""
+  },
+  {
+    "page": "Shape and Color",
+    "number": 5,
+    "description": "Like the shape we created using software like photoshop, each shape has a stroke. We can also change the both stroke weight and color of the shape by using the following function.<br>\nFunction \"strokeWeight()\" sets the width of the stroke used for lines, points, and the border around shapes. All widths are set in units of pixels.<br>\nFunction \"stroke()\" sets the color used to draw lines and borders around shapes.",
+    "task": "Please set the stroke weight to 10 and stroke color to white (255,255,255). ",
+    "code": "strokeWeight(x);<br>\nstroke(r,g,b);",
+    "feedback": "",
+    "hint_1": "Use the formlua provided and fill in the four parameters as described by the task.",
+    "hint_2": "strokeWeight(10);<br>\nstroke(255,255,255);",
+    "answer_1": "strokeWeight(10);\nstroke(255,255,255)",
+    "answer_2": "",
     "reset": ""
   },
   {
@@ -161,7 +174,7 @@ var csvfile = [
     "description": "In our current code segment. We did not change the value of x and y everytime we execute \"draw()\".<br>\nHowever, we can change their value to make the object move!",
     "task": "Please try to modify the y position to make the circle moving up 1 pixel every time the function \"draw()\" is executed.",
     "code": "x = x; <br>\ny = y;",
-    "feedback": "",
+    "feedback": "Did you move the ball down out of the screen? <br>\nRemember: The y-position is 0 at the top of the screen.",
     "hint_1": "To move the circle up, you should decrease the value of y until it reaches 0.",
     "hint_2": "y = y - 1;",
     "answer_1": "y=y-1",
@@ -174,7 +187,7 @@ var csvfile = [
     "description": "Now let's try something harder!<br>\nWe would like to utilize the random function to change the x position of the circle.",
     "task": "Please modify the x position to make the ball moving left and right randomly within -1 and 1 each iteration the function \"draw()\" is executed.",
     "code": "random([min],[max]);",
-    "feedback": "",
+    "feedback": "Did you delete the original x value?<br>\nActually everytime the change on x is based on its last value, so the right function is like this:<br>\nx = x + ?",
     "hint_1": "The random function will generate a random floating-point number between the two parameters.",
     "hint_2": "x = x + random(-1,1);",
     "answer_1": "x=x+random(-1,1)",
@@ -226,7 +239,7 @@ var csvfile = [
     "description": "Now, hover your mouse over the circle.<br>\nThe circle is tickling! However, since we haven't detect the y position, the circle will still tickle even we hover the mouse above or below it. ",
     "task": "Please refine mouseY (the y position of your index) like what we just did for mouseX in the if-statement.",
     "code": "mouseY <br>",
-    "feedback": "",
+    "feedback": "Did you delete the detection for mouseX? <br>\nWe need both detections at the same time - by using && to connect them",
     "hint_1": "Since the object is a circle, the detection for mouseY should be exactly the same as for mouseX",
     "hint_2": "mouseY >= y - r/2 && mouseY <= y + r/2",
     "answer_1": "mouseX>=x-r/2&&mouseX<=x+r/2&&mouseY>=y-r/2&&mouseY<=y+r/2",
@@ -311,4 +324,4 @@ var csvfile = [
     "answer_2": "",
     "reset": "test"
   }
- ];
+];
